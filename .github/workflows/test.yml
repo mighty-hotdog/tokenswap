@@ -21,18 +21,8 @@ jobs:
 
       - name: Install / update Foundry
         uses: foundry-rs/foundry-toolchain@v1
-        run: |
-          # 1. Download and run the raw installer script
-          curl -L https://foundry.paradigm.xyz | bash
-          
-          # 2. Append the binary directory directly to the global GitHub runner path
-          echo "$HOME/.foundry/bin" >> $GITHUB_PATH
-          
-          # 3. Synchronize path variable updates for the current active environment shell context
-          export PATH="$HOME/.foundry/bin:$PATH"
-          
-          # 4. Initialize foundryup safely
-          foundryup
+        with:
+          version: nightly
 
       - name: Show Forge version
         run: forge --version
