@@ -19,8 +19,9 @@ jobs:
           persist-credentials: false
           submodules: recursive
 
-      - name: Install Foundry
+      - name: Install / update Foundry
         uses: foundry-rs/foundry-toolchain@v1
+        run: curl -L https://foundry.paradigm.xyz | bash source $HOME/.foundry/bin foundryup
 
       - name: Show Forge version
         run: forge --version
