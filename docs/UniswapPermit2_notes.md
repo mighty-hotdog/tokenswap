@@ -72,3 +72,6 @@ Integrating apps however have to track and validate the context of each transact
 Permit2 introduces several security features that improve upon ERC20. However, token owners are still responsible for making sure what they sign is what they intend. Malicious apps can still attempt to trick owners into signing fraudulent messages that can be used to effect owner-unintended transactions.
 
 Permit2 architecture involves redirection/rerouting of requests/transactions. Lots of room for context mistakes/bugs and unchecked contexts. The burden falls heavy upon integrating contracts to carefully validate the context of each transaction - caller, receiver, transfer to/from who, allowance to/from who, who is msg.sender really, etc.
+
+As a separate but related point, Uniswap also provides the `Universal Router` that mitigates some of these rerouting issues.  
+https://developers.uniswap.org/docs/protocols/universal-router/overview
