@@ -12,6 +12,8 @@ https://etherscan.io/address/0x000000000022D473030F116dDEE9F6B43aC78BA3
 
 Because it was deployed via EVM's `CREATE2` opcode, any network supported by the Uniswap Protocol or its deployment factory automatically hosts the identical unowned singleton.
 
+Permit2 supports not just EOAs but also contract token owners. All its signature verifications are compliant with ERC1271.
+
 ## Mechanism
 Before everything else, the user is required to call `approve()` on the token contract directly and grant the Permit2 contract an allowance.
 
