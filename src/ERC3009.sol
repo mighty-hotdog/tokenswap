@@ -10,7 +10,12 @@ import {SimpleSignatureChecker} from "./SimpleSignatureChecker.sol";
  * @notice  Implementation of ERC3009 standard for direct ERC20 token transfers (skipping approvals) via owner-originated signatures.
  * @author  mighty_hotdog
  *          created 03Aug2026
+ *          modified 06Aug2026
+ *              added comments to highlight ERC1271 support and that the `isValidSignature()` library function uses `staticcall`.
  * @dev     This implementation assumes the `vrs` signatures are secp256k1. The standard itself does not specify any particular scheme.
+ * @dev     This contract Supports ERC1271 via the SimpleSignatureChecker library.
+ *          To be noted that the `isValidSignature()` library function used in this contract performs a `staticcall` to do the signature
+ *          checking. This guarantees that the unknown/untrusted contract being called cannot change blockchain state.
  */
 abstract contract ERC3009 is IERC3009, ERC20 {
     // constants
