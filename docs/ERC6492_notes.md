@@ -9,3 +9,4 @@ The signer specification is to produce specially wrapped signatures that signal 
 
 The verifier specification is to inspect the wrapped signatures and take specific actions based on their content. These actions include trying to deploy the signer contract directly, making the regular ERC1271 `isValidSignature()` call, or falling back to `ecrecover()`.
 
+It's worthwhile to note here that the signer is often a contract wallet that gets a token owner to sign messages to authorize actions to be taken on his behalf. The verifier is often an app that the user/owner interacts with (eg: defi exchange), that receives the signature and needs to verify it before executing the user request.

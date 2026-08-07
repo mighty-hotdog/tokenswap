@@ -9,9 +9,9 @@ Started on 16Jul2026. Goal is to learn enough to build out non-trivial versions 
 
 # Roadmap
 started:   16Jul2026  
-today:     06Aug2026 (22 days)
+today:     07Aug2026 (23 days)
 
-* get to sufficiently complex custom token contracts that are unit/fuzz/invariant/onchain testable.
+* create sufficiently complex contracts that are unit/fuzz/invariant/onchain testable.
 * create test rigs and write test suites for them.
 * get to a MoneyPouch design that is buildable and begin building it.
   * compare with common designs + implementations.
@@ -19,7 +19,7 @@ today:     06Aug2026 (22 days)
   * 2-3 day sprints that produce testable features + associated tests, OR writeups.
 * deploy MoneyPouch onchain and test.
 
-## Custom Token Contracts
+## Contracts for Tokens, Signers, Verifiers, Relayers...and Everything Else
 1. ERC20 token.
    ERC20 core + metadata, mintable, burnable, ownable, pausable, authorizable, capped, wrapped.
 2. Approvals, permits and signatures.
