@@ -5,18 +5,20 @@ Tokenswap is a defi app that lets users connect wallets, create liquidity pools,
 MoneyPouch is a wallet that lets users store and manage tokens, and connect to defi apps in order to swap, spend, stake, or otherwise use these tokens.
 
 # The Plan
-Started on 16Jul2026. Goal is to learn enough to build out non-trivial versions of these 2 projects by end Sep 2026.
+Started on 16Jul2026. Goal is to learn enough to build out these 2 projects by end Sep 2026.
 
 # Roadmap
 started:   16Jul2026  
-today:     07Aug2026 (23 days)
+today:     08Aug2026 (24 days)
 
 * create sufficiently complex contracts that are unit/fuzz/invariant/onchain testable.
-* create test rigs and write test suites for them.
+  * tokens, signers, verifiers, relayers, etc.
+  * create test rigs and test suites for them.
+  * deploy and test.
 * get to a MoneyPouch design that is buildable and begin building it.
   * compare with common designs + implementations.
-  * learn, experiment, build the components that go into MoneyPouch.
-  * 2-3 day sprints that produce testable features + associated tests, OR writeups.
+  * learn, experiment, build the major components.
+  * 2-3 day sprints that produce testable features + associated tests + writeups.
 * deploy MoneyPouch onchain and test.
 
 ## Contracts for Tokens, Signers, Verifiers, Relayers...and Everything Else
