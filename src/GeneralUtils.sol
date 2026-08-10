@@ -67,7 +67,7 @@ library GeneralUtils {
 
     /*
      * @notice  deDupeList function for bytes
-     *          De-duplicates a bytes[] list and returns a new address[] list with no duplicates and resized appropriately.
+     *          De-duplicates a bytes[] list and returns a new bytes[] list with no duplicates and resized appropriately.
      * @dev     Comparing `bytes` is a pain as "==" cannot be used directly - need to compare hashes instead.
      *          And becos hashing is expensive, comparing lengths 1st will eliminate `bytes` of different lengths straight away
      *          without having to hash them.
