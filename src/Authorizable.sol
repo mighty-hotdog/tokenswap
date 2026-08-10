@@ -1,10 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.36;
 
+import {GeneralUtils} from "./GeneralUtils.sol";
+
 /*
  * @title   Authorizable
  * @author  mighty_hotdog
  *          created 17Jul2026
+ *          modified 10Aug2026
+ *              generalize `deDupeList()` to work with any list, and move to separate utility library "GeneralUtils"
  * @notice  Authorize implements a type of access control - authorized users - to all inheriting contracts.
  * @dev     _authorizedUsers is implemented as an address array to facilitate enumeration (ie: knowing how many
  *          users, who they are, adding/removing specific users).
@@ -86,7 +90,7 @@ abstract contract Authorizable {
         if (newLen == 0) {return;}
 
         // de-duplicate usersToRemove into deDuped (memory)
-        address[] memory deDuped = newLen > 1 ? deDupeList(newUsers) : newUsers;
+        address[] memory deDuped = newLen > 1 ? GeneralUtils.deDupeList(newUsers) : newUsers;
         newLen = deDuped.length;
 
         // if _authorizedUsers (storage) is empty, just copy deDuped to it and return
@@ -150,7 +154,7 @@ abstract contract Authorizable {
         if (len == 0) {return;}
 
         // de-duplicate usersToRemove into deDuped (memory)
-        address[] memory deDuped = removeLen > 1 ? deDupeList(usersToRemove) : usersToRemove;
+        address[] memory deDuped = removeLen > 1 ? GeneralUtils.deDupeList(usersToRemove) : usersToRemove;
         removeLen = deDuped.length;
 
         // copy _authorizedUsers (storage) to cached (memory)
@@ -220,7 +224,8 @@ abstract contract Authorizable {
      *          Trick involves manually overwriting existing memory array size, leaving out-of-scope items to be released at end
      *          of whole transaction.
      */
-    function deDupeList(address[] memory list) internal virtual pure returns (address[] memory) {
+    /*
+    function deDupeListTemp(address[] memory list) internal virtual pure returns (address[] memory) {
         // if list has < 2 items, return as is
         uint256 len = list.length;
         if (len < 2) {return list;}
@@ -249,15 +254,13 @@ abstract contract Authorizable {
             unchecked {i++;}
         }
 
-        /*
         // create new memory array finalList with length deDupedCount, copy all deDuped items to it, then return finalList
-        address[] memory finalList = new address[](deDupedCount);
-        for (uint256 i = 0; i < deDupedCount;) {
-            finalList[i] = deDuped[i];
-            unchecked {i++;}
-        }
-        return finalList;
-        */
+        //address[] memory finalList = new address[](deDupedCount);
+        //for (uint256 i = 0; i < deDupedCount;) {
+        //    finalList[i] = deDuped[i];
+        //    unchecked {i++;}
+        //}
+        //return finalList;
 
         // this 1 line assembly is more efficient than the above loop copy
         // it updates the length of the existing deDuped in-memory array
@@ -272,4 +275,5 @@ abstract contract Authorizable {
         assembly {mstore(deDuped, deDupedCount)}
         return deDuped;
     }
+    */
 }
