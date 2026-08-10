@@ -32,26 +32,29 @@ import {ERC3009} from "./ERC3009.sol";
  *              introduced `InitialCaps` struct via `IERC20CustomToken` interface import in order to set initial caps.
  *              modified this contract name from `ERC20CustomToken` to `ERC20Token`.
  *              fixed misleading interface name `IERC20CustomToken` to `ITokenCaps`.
+ *          modified 09Aug2026
+ *              updated notes on multiple inheritance.
+ *              updated "todos" list.
  *          todos:
- *              1. fix `this` warnings in constructor. what's best cleanest way???
- *              2. add Uniswap Permit2 support.
+ *              1. fix `this` warnings in constructor. what's best cleanest way??? (apparent this is not a problem but a
+ *                 solidity parser quirk)
+ *              2. add Uniswap Permit2 support. (nothing to add, UniswapPermit2 just works with any ERC20 token)
  *              3. refactor.
  *
  * @dev     Important notes on multiple inheritance:
  *              1. Inheritance impacts visibility of functions and variables, ie: who can see who.
  *                 And in the case of multiple inheritance, there is an order, ie: who can see who 1st, who 2nd, etc.
- *              2. C3 Linearization (the way Solidity handles multiple inheritance) ensures that for ERC20CustomToken,
- *                 there is only 1 instance of, for example, `_balances`, as defined in the ERC20 abstract contract,
- *                 even though ERC20 is inherited by several of ERC20CustomToken's parents, as well as itself.
- *              3. Related to (2), state variable shadowing (ie: different variables same name) is not legal, hence for
- *                 a contract that inherits from multiple contracts like ERC20CustomToken, all state variable names must
- *                 be unique.
+ *              2. C3 Linearization (the way Solidity handles multiple inheritance) ensures that for ERC20Token
+ *                 (ie: this contract), there is only 1 instance of, for example, `_balances`, as defined in the ERC20
+ *                 abstract contract, even though ERC20 is inherited by several of ERC20Token's parents, as well as
+ *                 ERC20Token itself.
+ *              3. Related to (2), state variable shadowing (ie: different variables same name) is not allowed, hence for
+ *                 a contract that inherits from multiple contracts like ERC20Token, all state variable names must be unique.
  *              4. While state variables must be unique, functions may be overloaded (same name but different typed
  *                 parameters or different number of parameters) or overridden (explicitly via `virtual` and `override`).
  *              5. When a function that has multiple separate definitions in the inheritance graph is called in a child
- *                 contract (eg: ERC20CustomToken), the compiler searches the parent contracts from right to left in the
- *                 order they are specified.
- *                 ie: ERC2612 is searched 1st, then Pausable, then Ownable, ERC20Mintable, etc.
+ *                 contract (eg: ERC20Token), the compiler searches the parent contracts from right to left in the order
+ *                 they are specified, ie: ERC2612 is searched 1st, then Pausable, then Ownable, ERC20Mintable, etc.
  */
 contract ERC20Token is 
     ITokenCaps, ERC20, ERC20Meta, ERC20Burnable, ERC20Mintable, Ownable, Pausable, Authorizable, Capped, ERC2612, ERC3009 {
