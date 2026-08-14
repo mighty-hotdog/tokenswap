@@ -22,7 +22,6 @@ pragma solidity ^0.8.36;
  *          1. user deposits collateral tokens and receives equivalent amount of wrapped tokens.
  *          2. user burns/returns wrapped tokens and receives back equivalent amount of collateral tokens.
  *          3. collateral/wrapped exchange rate fixed at 1:1.
- *          CHANGED contract and file name from `WrappedToken` to `ERC20Wrapped`. Go to `ERC20Wrapped.sol` for latest version.
  *
  * @dev     TBD if we want to mess around with payables in order to accept ETH as collateral.
  */
