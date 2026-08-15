@@ -35,11 +35,11 @@ import {ERC3009} from "./ERC3009.sol";
  *          modified 09Aug2026
  *              updated notes on multiple inheritance.
  *              updated "todos" list.
+ *          modified 15Aug2026
+ *              added dev notes on `this` warnings in constructor and Uniswap Permit2 support.
+ *              updated todos.
  *          todos:
- *              1. fix `this` warnings in constructor. what's best cleanest way??? (apparent this is not a problem but a
- *                 solidity parser quirk)
- *              2. add Uniswap Permit2 support. (nothing to add, UniswapPermit2 just works with any ERC20 token)
- *              3. refactor.
+ *              1. refactor.
  *
  * @dev     Important notes on multiple inheritance:
  *              1. Inheritance impacts visibility of functions and variables, ie: who can see who.
@@ -55,6 +55,9 @@ import {ERC3009} from "./ERC3009.sol";
  *              5. When a function that has multiple separate definitions in the inheritance graph is called in a child
  *                 contract (eg: ERC20Token), the compiler searches the parent contracts from right to left in the order
  *                 they are specified, ie: ERC2612 is searched 1st, then Pausable, then Ownable, ERC20Mintable, etc.
+ * @dev     According to Gemini, these `this` warnings in constructor are merely a solidity parser legacy quirk and not a
+ *          problem to be fixed.
+ * @dev     This contract already works with Uniswap Permit2. No change needed, UniswapPermit2 just works with any ERC20 token.
  */
 contract ERC20Token is 
     ITokenCaps, ERC20, ERC20Meta, ERC20Burnable, ERC20Mintable, Ownable, Pausable, Authorizable, Capped, ERC2612, ERC3009 {
