@@ -9,7 +9,7 @@ Started on 16Jul2026. Goal is to learn enough to build out these 2 projects by e
 
 # Roadmap
 started:   16Jul2026  
-today:     08Aug2026 (24 days)
+today:     15Aug2026 (31 days)
 
 * create sufficiently complex contracts that are unit/fuzz/invariant/onchain testable.
   * tokens, signers, verifiers, relayers, etc.
