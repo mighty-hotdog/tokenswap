@@ -9,7 +9,7 @@ Started on 16Jul2026. Goal is to learn enough to build out these 2 projects by e
 
 # Roadmap
 started:   16Jul2026  
-today:     15Aug2026 (31 days)
+today:     26Aug2026 (42 days)
 
 * create sufficiently complex contracts that are unit/fuzz/invariant/onchain testable.
   * tokens, signers, verifiers, relayers, etc.
@@ -58,10 +58,11 @@ today:     15Aug2026 (31 days)
       2. what rigs/setup needed?
 
 ## Building MoneyPouch
-1. Wallet technology.
-   1. foundations, standards, components.
-   2. common designs + implementations.
-2. MoneyPouch design.
+1. Deepdive Coinbase Smart Wallet + Safe multisig wallet.
+2. Compare vs traditional wallets MetaMask, Rabby, Phantom.
+3. ...cook...
+4. ...cook more...
+5. Create MoneyPouch design.
 
 ## Phase 2 - Tokenswap app ? days
 7. Create MoneyPouch app + deploy on testnet.

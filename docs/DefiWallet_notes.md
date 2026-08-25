@@ -1,0 +1,7 @@
+# Defi Wallets - An Overview
+
+The most heavily used wallets (eg: Metamask, Phantom, Rabby, Trust), commonly referred to as "standard", or "traditional" hot wallets, are designed for direct use/interaction with human users. **These wallets exist almost 100% offchain as web/mobile apps, appearing onchain only as EOAs able to initiate/participate in transactions as directed by their human account holders.**
+
+Smart contract wallets (eg: Coinbase Smart Wallet, Safe Multisig), frequently also termed account abstraction wallets or ERC4337 wallets, are a fast growing class of wallets already in wide usage, but **concentrated in L2 networks rather than the Ethereum mainnet**. These isolate `key pairs generation`, `private keys storage`, and `transactions signing` strictly offchain, while delegating `transaction execution`, plus various other user features, to onchain smart contracts.
+
+Due to their being smart contracts themselves, contract wallets enable a greater range of functionality not possible with standard EOA wallets, eg: more options for access control including multisig setups, onchain recovery of wallets/accounts due to misplaced private keys, gas sponsorship, transaction guardrails, etc.
