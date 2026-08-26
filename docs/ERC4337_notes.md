@@ -5,7 +5,7 @@ created:    26Aug2026
 updated:    27Aug2026
 
 **Account Abstraction** allows blockchain users to use `smart contract accounts` containing arbitrary verification code as their primary accounts instead of `EOAs`.  
-**Protocol** refers to Ethereum, specifically the consensus layer.  
+**Protocol** refers to the Ethereum blockchain, specifically the consensus layer.  
 **Application code** refers to `smart contracts`.  
 
 ## What it does
@@ -48,7 +48,7 @@ Introduced:
 
 Apps (offchain) builds `UserOperation` structs from user intent + other relevant information, performs some validation simulation on them, signs them with user's private key, then submits them, via specialized bundler-targeting RPCs, to `bundler` nodes.
 
-`Bundler` nodes, working in the `canonical UserOperation mempool`, after performing more validation simulation (different objectives and different sim methods vs the apps) on the structs, bundles several of them together and submits them to Ethereum blockchain by calling `handleOps()` on the singleton `EntryPoint contract`.
+`Bundler` nodes (still considered offchain since no blockchain state change is allowed here), working in the `canonical UserOperation mempool`, after performing more validation simulation (different objectives and different sim methods vs the apps) on the structs, bundles several of them together and submits them to Ethereum blockchain by calling `handleOps()` on the singleton `EntryPoint contract`.
 
 ### At application level
 `EntryPoint contract` goes through:  
