@@ -33,8 +33,8 @@ Additional, ERC4337 introduces new features and use-cases:
 
       All discussions in the ERC4337 specification deal with usage and interaction with the `canonical UserOperation mempool`. The ERC7562 specification goes into more detail about both mempools, as well as usage of the `alternative UserOperation mempool` that ERC4337 does not cover.
 2. User privacy.
-3. Atomic multi-operations (parallel to EIP7202).
-4. Allow transaction fees payment with ERC20 tokens instead of ETH, and allow transactions sponsorship (parallel to EIP7202).
+3. Atomic multi-operations (parallel to EIP7702).
+4. Allow transaction fees payment with ERC20 tokens instead of ETH, and allow transactions sponsorship (parallel to EIP7702).
 5. Abstracted validation, allowing use of different schemes, multisigs, custom recovery, etc.
 6. Abstracted gas payments, allowing 3rd party payees to be onboarded, payment in different tokens, cross-chain gas payments, etc.
 7. Abstracted execution, allowing bundled transactions.
@@ -42,21 +42,27 @@ Additional, ERC4337 introduces new features and use-cases:
 ## How it works
 ### At protocol level
 Introduced:
-   1. `UserOperation` pseudo transaction.
-   2. `canonical UserOperation mempool` and `alternative UserOperation mempool`.
-   3. `bundler` node type.
+1. `UserOperation` pseudo transaction.
+2. `canonical UserOperation mempool` and `alternative UserOperation mempool`.
+3. `bundler` node type.
+
+`Bundler` nodes implement ERC7652 for their validation sims.
 
 Apps (offchain) builds `UserOperation` structs from user intent + other relevant information, performs some validation simulation on them, signs them with user's private key, then submits them, via specialized bundler-targeting RPCs, to `bundler` nodes.
 
-`Bundler` nodes (still considered offchain since no blockchain state change is allowed here), working in the `canonical UserOperation mempool`, after performing more validation simulation (different objectives and different sim methods vs the apps) on the structs, bundles several of them together and submits them to Ethereum blockchain by calling `handleOps()` on the singleton `EntryPoint contract`.
+`Bundler` nodes (still considered offchain since no blockchain state change is allowed here), working in the `canonical UserOperation mempool`, after performing more validation simulation (different objectives and different sim methods vs the apps) on the structs, bundles several of them together and submits them to Ethereum blockchain (onchain, finally) by calling `handleOps()` on the singleton `EntryPoint contract`.
 
 ### At application level
+Introduced:
+1. `Factory contract` singleton
+2. `EntryPoint contract` singleton
+
 `EntryPoint contract` goes through:  
 * 1st a verification loop in which it performs `signature validation` on each submitted `UserOperation`.  
   Note that an earlier round of `signature validation` had already been done offchain by the bundler nodes before submission onchain to `EntryPoint contract`.
-* 2nd an execution loop in which it executes each `UserOperation` via the proxy wallet address specified in each struct.  
+* 2nd an execution loop in which it executes each `UserOperation` via the `sender` address specified in each struct.  
   Execution loop ends when:  
-  * all `UserOperations` have been processed (either executed or discarded).
+  * all `UserOperations` have been processed (either sent to the `sender` address to be executed, or discarded).
   * all gas expenses have been settled, ie:
     * all expenses covered and sent to the appropriate specified receipients,
     * excess gas refunded to the appropriate receipients.
