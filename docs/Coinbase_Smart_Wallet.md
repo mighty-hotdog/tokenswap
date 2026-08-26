@@ -11,15 +11,16 @@ Major pieces:
 * offchain key generation (Credential Management API and WebAuthn)
 * onchain signature verification (ERC4337 EntryPoint, EIP7212)
 * abstract account setup and deployment across multichains (ERC4337 and ERC1167)
+* transaction simulation - offchain and onchain (ERC4337 v0.6 vs v0.7 and ERC7562)
 * onchain transaction execution
-* multisig, paymaster, and other functionalities
+* multisig, paymaster, and other features
 
 ## Features and Points of Note
-* Uses `secp256r1` (NIST P-256) elliptic cryptography, not the `secp256k1` used in Bitcoin, Ethereum/EVM and "standard crypto". Via WebAuthn and EIP7212 precompiles.
-* Offchain-onchain interactions pass through the `ERC4337 EntryPoint` contract as gateway.
+* Uses `secp256r1` (NIST P-256) elliptic cryptography, not the `secp256k1` used in Bitcoin, Ethereum/EVM and "standard crypto". Via `WebAuthn` and `EIP7212 precompiles`.
+* Offchain-onchain interactions pass through the `ERC4337 EntryPoint contract` as gateway.
 * Single address and unified user experience across multichains via `ERC4337 factory` and `ERC1167 minimal proxy contract`.
 * Prioritizes user experience and maximum gas optimization via non-modular, hardcoded logic, eschewing ERC7579.
-* Multiple convenience and/or enabling functionalities via ERC4337 (eg: multisig, paymaster).
+* Multiple convenience and/or enabling functionalities via ERC4337 (eg: `multisig`, `paymaster`).
 
 ## New User Signup Workflow
 ### Phase 1 - Offchain key generation
@@ -98,6 +99,5 @@ Occurs when user performs 1st outgoing action, eg: send funds, swap token, mint 
 
 ### Phase 5 - Final display update
 12. Frontend catches and parses the onchain events triggered by the `UserOperation`, and upon receipt of the final event(s), updates the user display to show the final status on the transaction.
-
 
 ## Other Workflows
