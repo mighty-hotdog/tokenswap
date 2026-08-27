@@ -10,7 +10,7 @@ Started on 16Jul2026. Goal is to learn enough to build out these 2 projects by e
 # Roadmap
 started:    16Jul2026  
 revised:    27Aug2026  
-today:      267Aug2026 (43 days)
+today:      27Aug2026 (43 days)
 
 * ~~(re)familiarize with Solidity and EVM dev by creating from scratch simple smart contracts.~~ DONE
   * ~~ERC20 core + metadata, mintable, burnable, ownable, pausable, authorizable, capped, wrapped.~~ DONE
@@ -19,17 +19,17 @@ today:      267Aug2026 (43 days)
   * foundations - EIP712, ERC191, EIP155, ERC1271.
   * sigs - vrs, standard 65 byte array, EIP2098, ERC6492, EIP7212, EIP2537.
 * wallets.
-  * fundamentals - abstracted accounts ERC4337, ERC7562, ERC1167, ERC7702, ERC7579, multisigs (Safe multisig).
+  * fundamentals - abstracted accounts ERC4337, ERC7562, ERC1167, ERC7702, ERC7579, multisigs (Safe multisig), paymasters, aggregators.
   * deep dive Coinbase Smart Wallet and Safe Multisig Wallet.
   * compare vs traditional wallets Metamask, Rabby, Phantom.
 * create sufficiently complex contracts that are unit/fuzz/invariant/onchain testable.
   * tokens, signers, verifiers, relayers, etc.
   * create test rigs and test suites for them.
   * deploy and test.
-* design and build MoneyPouch.
+* design, build and test MoneyPouch.
   * compare vs and study state-of-the-art wallet designs and implementations.
   * learn, experiment, create initial design and revise along the way.
-  * begin building as soon as major components are identified and design becomes buildable.
+  * begin building as soon as major components are clear and design becomes buildable.
   * 2-3 day sprints that produce testable features + associated tests + writeups.
 * deploy MoneyPouch onchain and test.
 
