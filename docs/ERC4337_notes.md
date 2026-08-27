@@ -46,7 +46,7 @@ Introduced:
 2. `canonical UserOperation mempool` and `alternative UserOperation mempool`.
 3. `bundler` node type.
 
-`Bundler` nodes implement ERC7652 for their validation sims.
+`Bundler` nodes implement ERC7562 for their validation sims.
 
 App frontends (offchain):  
 * builds `UserOperation` structs from user intent + other relevant information,
@@ -121,5 +121,26 @@ Simulaton specification:
   * call `sender.validateUserOp()`,
   * if a paymaster is specified in the `UserOperation`, call `paymaster.validatePaymasterUserOp()`.
   * `bundler` code stops here without going into actual execution, which the live `handleOps()` of the onchain `EntryPoint contract` will continue with.
-* `bundler` code does all the above while enforcing the rules specified in ERC7652.
+* `bundler` code does all the above while enforcing the rules specified in ERC7562.
 
+### ERC7562
+
+### Support for EIP7702
+
+### Factory
+
+### Paymasters
+
+### Aggregators
+
+## Key specifications
+### UserOperation
+### PackedUserOperation
+### Sender
+### EntryPoint
+### Canonical and Alternative Mempools
+### Bundler
+### Error codes
+### Reputation
+
+## Security considerations
