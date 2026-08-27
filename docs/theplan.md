@@ -23,7 +23,7 @@ today:      27Aug2026 (43 days)
     * abstracted accounts ERC4337, ERC7562, ERC7702.
     * proxy contracts ERC1167.
     * modular smart accounts ERC7579.
-    * multisigs (Safe multisig), paymasters, aggregators.
+    * multisigs (Safe multisig), paymasters ERC7677, ~~aggregators ERC7766~~ [^1].
   * deep dive Coinbase Smart Wallet and Safe Multisig Wallet.
   * compare vs traditional wallets Metamask, Rabby, Phantom.
 * design, build and test MoneyPouch.
@@ -34,7 +34,7 @@ today:      27Aug2026 (43 days)
   * 2-3 day sprints that produce testable features + associated tests + writeups.
 * deploy MoneyPouch onchain and test.
 
-
+[^1]: Aggregators in their current form have proven irrelevant with recent Ethereum improvements in gas reduction especially for L2s. ERC7766 has been withdrawn due to no production adoption.
 
 
 
