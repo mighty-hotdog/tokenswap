@@ -2,7 +2,7 @@
 
 author:     mighty_hotdog  
 created:    26Aug2026  
-updated:    27Aug2026
+updated:    28Aug2026
 
 **Account Abstraction** allows blockchain users to use `smart contract accounts` containing arbitrary verification code as their primary accounts instead of `EOAs`.  
 **Protocol** refers to the Ethereum blockchain, specifically the consensus layer.  
@@ -83,14 +83,14 @@ There are 2 different types of `UserOperation` simulation/validation done in the
 1. Asset/UX simulation.  
    When: right before user sees device OS prompt to sign transaction.  
    Performed by: app `frontend`.  
-   Method:  
+   Method: ***to be completed***  
    Goals:  
    * User protection.  
       By translating raw bytecode of the `UserOperation` into human-readable text and allowing user to confirm intention to proceed.
    * Gas estimation.  
       Assists the frontend in populating the `UserOperation` fields concerned with gas and fees.  
 2. ERC7562 security/verification simulation.  
-   When: after app `frontend` submits `UserOperation` to `bundler` nodes via bundler-targeting RPCs, before `bundler` does bundling.  
+   When: after app `frontend` submits `UserOperation` to `bundler` nodes via bundler-targeting RPCs, before `bundler` submits `UserOperation` bundles onchain.  
    Performed by: `bundler` node.  
    Goals:  
    * ensures `UserOperations` are valid (ie: not flawed transactions that will revert).
