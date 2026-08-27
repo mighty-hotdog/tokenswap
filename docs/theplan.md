@@ -17,19 +17,20 @@ today:      27Aug2026 (43 days)
 * approvals, permits and signatures.
   * ~~ERC2612, ERC3009, Uniswap Permit2.~~ DONE
   * foundations - EIP712, ERC191, EIP155, ERC1271.
-  * sigs - vrs, standard 65 byte array, EIP2098, ERC6492, EIP7212, EIP2537.
+  * sigs - vrs, standard 65 byte array, EIP2098, ERC6492, EIP7212, EIP2537, multisigs.
 * wallets.
-  * fundamentals - abstracted accounts ERC4337, ERC7562, ERC1167, ERC7702, ERC7579, multisigs (Safe multisig), paymasters, aggregators.
+  * foundations:
+    * abstracted accounts ERC4337, ERC7562, ERC7702.
+    * proxy contracts ERC1167.
+    * modular smart accounts ERC7579.
+    * multisigs (Safe multisig), paymasters, aggregators.
   * deep dive Coinbase Smart Wallet and Safe Multisig Wallet.
   * compare vs traditional wallets Metamask, Rabby, Phantom.
-* create sufficiently complex contracts that are unit/fuzz/invariant/onchain testable.
-  * tokens, signers, verifiers, relayers, etc.
-  * create test rigs and test suites for them.
-  * deploy and test.
 * design, build and test MoneyPouch.
   * compare vs and study state-of-the-art wallet designs and implementations.
   * learn, experiment, create initial design and revise along the way.
   * begin building as soon as major components are clear and design becomes buildable.
+  * create test rigs and test suites for unit/fuzz/invariant/onchain.
   * 2-3 day sprints that produce testable features + associated tests + writeups.
 * deploy MoneyPouch onchain and test.
 
