@@ -8,19 +8,36 @@ MoneyPouch is a wallet that lets users store and manage tokens, and connect to d
 Started on 16Jul2026. Goal is to learn enough to build out these 2 projects by end Sep 2026.
 
 # Roadmap
-started:   16Jul2026  
-today:     26Aug2026 (42 days)
+started:    16Jul2026  
+revised:    27Aug2026  
+today:      267Aug2026 (43 days)
 
+* ~~(re)familiarize with Solidity and EVM dev by creating from scratch simple smart contracts.~~ DONE
+  * ~~ERC20 core + metadata, mintable, burnable, ownable, pausable, authorizable, capped, wrapped.~~ DONE
+* approvals, permits and signatures.
+  * ~~ERC2612, ERC3009, Uniswap Permit2.~~ DONE
+  * foundations - EIP712, ERC191, EIP155, ERC1271.
+  * sigs - vrs, standard 65 byte array, EIP2098, ERC6492, EIP7212, EIP2537.
+* wallets.
+  * fundamentals - abstracted accounts ERC4337, ERC7562, ERC1167, ERC7702, ERC7579, multisigs (Safe multisig).
+  * deep dive Coinbase Smart Wallet and Safe Multisig Wallet.
+  * compare vs traditional wallets Metamask, Rabby, Phantom.
 * create sufficiently complex contracts that are unit/fuzz/invariant/onchain testable.
   * tokens, signers, verifiers, relayers, etc.
   * create test rigs and test suites for them.
   * deploy and test.
-* get to a MoneyPouch design that is buildable and begin building it.
-  * compare with common designs + implementations.
-  * learn, experiment, build the major components.
+* design and build MoneyPouch.
+  * compare vs and study state-of-the-art wallet designs and implementations.
+  * learn, experiment, create initial design and revise along the way.
+  * begin building as soon as major components are identified and design becomes buildable.
   * 2-3 day sprints that produce testable features + associated tests + writeups.
 * deploy MoneyPouch onchain and test.
 
+
+
+
+
+scratchpad start---------------------------------------------------------------
 ## Contracts for Tokens, Signers, Verifiers, Relayers...and Everything Else
 1. ERC20 token.
    ERC20 core + metadata, mintable, burnable, ownable, pausable, authorizable, capped, wrapped.
@@ -83,3 +100,5 @@ today:     26Aug2026 (42 days)
 11. Create test rig for Tokenswap app.
    1.  offchain testing
    2.  onchain testing
+
+scratchpad end-----------------------------------------------------------------
