@@ -10,7 +10,7 @@ Started on 16Jul2026. Goal is to learn enough to build out these 2 projects by e
 # Roadmap
 started:    16Jul2026  
 revised:    27Aug2026  
-today:      27Aug2026 (43 days)
+today:      01Sep2026 (48 days)
 
 * ~~(re)familiarize with Solidity and EVM dev by creating from scratch simple smart contracts.~~ DONE
   * ~~ERC20 core + metadata, mintable, burnable, ownable, pausable, authorizable, capped, wrapped.~~ DONE
@@ -27,7 +27,7 @@ today:      27Aug2026 (43 days)
   * deep dive Coinbase Smart Wallet and Safe Multisig Wallet.
   * compare vs traditional wallets Metamask, Rabby, Phantom.
 * design, build and test MoneyPouch.
-  * compare vs and study state-of-the-art wallet designs and implementations.
+  * study and compare state-of-the-art wallet designs and implementations.
   * learn, experiment, create initial design and revise along the way.
   * begin building as soon as major components are clear and design becomes buildable.
   * create test rigs and test suites for unit/fuzz/invariant/onchain.
